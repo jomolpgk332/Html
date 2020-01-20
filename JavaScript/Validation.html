@@ -1,0 +1,31 @@
+<html>
+   <form  action="https://www.google.com/" onsubmit="return ac()">
+    Name(max 10 characters):<input type="text" id="fname" size="20" name="fname"><br/>
+    Age(between 1 and 100):<input type="text" id="agee" size="20" name="age"><br/>
+    Email:<input type="text" id="email" size="20" name="email"><br/>
+    <input type="submit" value="submit">
+       </form>
+       <script>
+           function ac(){
+               var at=document.getElementById("email").value.indexOf("@");
+               var age=document.getElementById("age").value;
+               var fname=document.getElementById("fname").value;
+               submitOk="true";
+               if(fname.length>10){
+                   alert("the name may no more than 10 characters");
+                   submitOk="false";
+               }
+               if(isNaN(age) || age < 1 || age > 100){
+                   alert("the age must be a number between 1 and 100");
+                   submitOk="false";
+               }
+               if(at==-1){
+                   alert("not a valid email");
+                   submitOk="false";
+               }
+               if(submitOk=="false"){
+                   return false;
+               }
+           }
+       </script>
+</html>

@@ -1,0 +1,17 @@
+<html>
+  <form><
+    Number1:<input type="number" id="number" name="number"><br/>
+    Number2:<input type="number" id="number1" name="number1"><br/>
+    Add:<input type="number" id="number2" name="number2"><br/>
+  <input type="button" value="Add" onclick="add()">
+    
+    </form>
+    <script>
+        function add(){
+           var number=parseInt(document.getElementById("number").value);
+           var number1=parseInt(document.getElementById("number1").value);
+        document.getElementById("number2").value=number+number1;
+        }
+    </script>
+   
+</html>

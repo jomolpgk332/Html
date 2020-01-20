@@ -1,0 +1,20 @@
+<html>
+<form>
+    Name:<input type="text" id="fname" name="fname"><br/>
+    E-mail id:<input type="text" id="email" name="email"><br/>
+    Date-Of-Birth:<input type="date" id="dob" name="dob"><br/>
+    Username:<input type="text" id="uname" name="uname"><br/>
+    Password:<input type="password" id="pwd" name="pwd"><br/>
+<button onclick=a(fname.value,email.value,dob.value,uname.value,pwd.value)>Details</button>
+    </form>
+    <script>
+         function a(fname,email,dob,uname,pwd){
+            document.write("<h1>Your name is</h1>"+fname);
+            document.write("<h1>Your email id is:</h1>"+email);
+            document.write("<h1>Dob is:</h1>"+dob);
+            document.write("<h1>Your username is:</h1>"+uname);
+            document.write("<h1>Your password is:</h1>"+pwd);
+
+         }
+    </script>
+    </html>
