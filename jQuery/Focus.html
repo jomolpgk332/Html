@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="js/jquery-1.11.0.js"></script>  
+    </head>
+    <body>
+        <script>
+        $(document).ready(function(){
+            $("#btn").bind('click',add)
+            $("#a").bind('keyup',ch)
+            .bind('blur',blur);
+            $("#a").bind("focus",focus);
+            $("#b").bind('keyup',ch1)
+            .bind('blur',blur1);
+            $("#b").bind("focus",focus1);
+        
+        });
+        function ch()
+        {
+            $("#out").html("A Typing");
+        }
+        function ch1()
+        {
+            $("#out").html("B Typing");
+        }
+       function focus(){
+        $("#out").html("You selected A text Box");
+       }
+       function focus1(){
+        $("#out").html("You selected B text Box");
+       }
+       function blur(){
+        $("#out").html("A outside typing");
+       }
+       function blur1(){
+        $("#out").html("B outside typing");
+       }
+        function add(){
+            var  c=Number($("#a").val())+Number($("#b").val())
+            $("#out").html("total->"+c);
+        }
+            </script>
+            <form>
+                A value<input type="text" id="a">
+                B value<input type="text" id="b">
+                <button type="button" id="btn">Add</button>
+                <p id="out"></p>
+            </form>
+    </body>
+
+
+</html>

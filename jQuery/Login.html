@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="js/jquery-1.11.0.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    </head>
+   <body>
+       <input type="text" placeholder="username"  id="name"><br/>
+       <input type="password" placeholder="password" id="name"><br/>
+       <input type="submit" name="login" value="login"><br/>
+       <input type="checkbox"id="ch"> <i class="fa fa-eye" aria-hidden="true"></i>
+
+   </body>
+
+<script>
+    $("#ch").click(function(){
+        if($(this).prop('checked')){
+            $("#name").attr("type","text");
+        }
+        else{
+            $("#name").attr("type","password");
+        }
+    })
+    
+</script>
+  
+</html>

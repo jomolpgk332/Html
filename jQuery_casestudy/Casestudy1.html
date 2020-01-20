@@ -1,0 +1,266 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-1.11.0.js"></script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<center>
+    <font color="red">
+        <style>
+            body {
+                background-color: white;
+            }
+            
+            .container form div {
+                position: relative;
+            }
+            
+            .container form div label {
+                position: absolute;
+                top: 3px;
+                pointer-events: none;
+                left: 0;
+                transition: .1s;
+            }
+            
+            input {
+                width: 400px;
+                border: none;
+                background: transparent;
+                border-bottom: 1px solid white;
+                padding: 6px;
+                margin-bottom: 15px;
+                align-items: center;
+                color: tomato;
+            }
+            
+            .button {
+                border: dodgerblue;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 30px;
+                margin: 40px 10px;
+                cursor: pointer;
+            }
+            
+            .button2 {
+                background-color: #008CBA;
+                border-radius: 45px;
+                font-size: 30px;
+            }
+            
+            .container input:focus~label,
+            .container input:focus~label {
+                left: 0;
+                top: 20px;
+                color: rgb(red, green, blue);
+                font-size: 12px;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .container input:focus,
+            .container input:valid {
+                border-bottom: 2px solid rgb(red, green, blue);
+            }
+        </style>
+        <fieldset style="width:350px">
+            <font color="black">
+                <br><br> <br><br>
+
+
+                <div class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
+                    <div class="container">
+                        <legend>
+                            <font color="blue"><b>REGISTER</b></legend>
+                        </font><br>
+                        <form action="#" method="GET" id="registration_form">
+                            <div class="text1">
+
+                                <label> <i class="fa fa-user" aria-hidden="true"></i>First Name</label>
+                                <br>
+                                <input type="text" id="form_fname" name="fname" required="">
+                                <span class="error_form" id="fname_error_message"> </span>
+                            </div>
+
+                            <div class="text2">
+                                <label><i class="fa fa-user" aria-hidden="true"></i>Last Name</label><br>
+                                <input type="text" id="form_lname" name="lname" required/>
+                                <span class="error_form" id="lname_error_message"> </span>
+                            </div>
+
+                            <div class="text3">
+                                <label><i class="fa fa-envelope" aria-hidden="true"></i>
+                                Email</label><br>
+
+                                <input type="text" id="form_email" name="email" required/>
+                                <span class="error_form" id="email_error_message"> </span>
+                            </div>
+
+                            <div class="text4">
+                                <label>                 
+                          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+
+                                Password</label><br>
+                                <input type="password" id="form_password" name="password" required/>
+                                <span class="error_form" id="password_error_message"> </span>
+                            </div>
+                            <div class="text5">
+                                <label><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                Repassword</label><br>
+                                <input type="password" id="form_repassword" name="repassword" required/>
+                                <span class="error_form" id="repassword_error_message"> </span>
+                            </div><br><br><br>
+                            <input type="submit" class="button2" value="register" name="">
+                           <button type="button" class="button2" id="reset"><font color="white">Reset</font></button>
+
+                    </div>
+                </div>
+                </form>
+        </fieldset>
+        </div>
+
+        <body>
+          
+    
+            <script>
+                $(function() {
+                    $("#fname_error_message").hide();
+                    $("#lname_error_message").hide();
+                    $("#email_error_message").hide();
+                    $("#password_error_message").hide();
+                    $("#repassword_error_message").hide();
+
+                    var error_fname = false;
+                    var error_lname = false;
+                    var error_password = false;
+                    var error_repassword = false;
+                    var error_email = false;
+                    $("#form_fname").focusout(function() {
+                        check_fname();
+                    });
+                    $("#form_lname").focusout(function() {
+                        check_lname();
+                    });
+                    $("#form_email").focusout(function() {
+                        check_email();
+                    });
+                    $("#form_password").focusout(function() {
+                        check_password();
+                    });
+                    $("#form_repassword").focusout(function() {
+                        recheck_password();
+                    });
+
+                });
+
+                function check_fname() {
+
+                    var fname_length = $("#form_fname").val().length;
+
+                    if (fname_length < 5 || fname_length > 20) {
+                        $("#fname_error_message").html("Should be between 5-20 characters");
+                        $("#fname_error_message").show();
+                        error_fname = true;
+                    } else {
+                        $("#fname_error_message").hide();
+                    }
+
+                }
+
+                function check_lname() {
+
+                    var lname_length = $("#form_lname").val().length;
+
+                    if (lname_length < 5 || lname_length > 20) {
+                        $("#lname_error_message").html("Should be between 5-20 characters");
+                        $("#lname_error_message").show();
+                        error_lname = true;
+                    } else {
+                        $("#lname_error_message").hide();
+                    }
+
+                }
+
+                function check_email() {
+                    var pattern = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+                    if (pattern.test($("#form_email").val())) {
+                        $("#email_error_message").hide();
+                    } else {
+                        $("#email_error_message").html("Invalid Email Adress!");
+                        $("#email_error_message").show();
+                        error_email = true;
+                    }
+                }
+
+                function check_password() {
+
+                    var password_length = $("#form_password").val().length;
+
+                    if (password_length < 8) {
+                        $("#password_error_message").html("not less than 8 characters");
+                        $("#password_error_message").show();
+                        error_password = true;
+                    } else {
+                        $("#password_error_message").hide();
+                    }
+
+                }
+
+                function recheck_password() {
+
+                    var password1 = $("#form_password").val();
+                    var password2 = $("#form_repassword").val();
+                    if (password1 != password2) {
+                        $("#repassword_error_message").html("Not Matching");
+                        $("#repassword_error_message").show();
+                        error_password = true;
+                    } else {
+                        $("#repassword_error_message").hide();
+                    }
+
+                }
+                $("#reset").bind("click", function() {
+                    $("input[type=text], textarea").val("");
+                });
+                $("#registration_form").submit(function(){
+                error_fname=false;
+                error_lname=false;
+                error_email=false;
+                error_password=false;
+                error_repassword=false;
+                check_fname();
+                check_lname();
+                check_email();
+                check_password();
+                recheck_password();
+                if(error_fname===false &&  error_lname===false && error_email===false 
+                &&   error_password===false && error_repassword===false){
+                    alert("Registration successfull");
+                }
+                else{
+                    alert("Registration not successfull");
+                    return false;
+                };
+        });
+            $(document).ready(function(){
+                $("#icon").click(function(){
+                    if($(this).hasClass("fa-lock")){
+                        $(this).removeClass("fa-lock");
+                        $(this).addClass("fa-unlock-alt");
+                        $("#form_password").prop("type","text");
+                    }
+                    else{
+                        $(this).removeClass("fa-unlock-alt");
+                        $(this).addClass("fa-lock");
+                        $("#form_password").prop("type","password");
+                    }
+                })
+            })
+            </script>
+
+        </body>
+</center>
+
+</html>

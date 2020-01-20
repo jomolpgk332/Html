@@ -1,0 +1,22 @@
+{
+    "events":[
+        {
+            "id":"1",
+        "name":"Meenu Mathew",
+        "address":"Street 1",
+        "email":"meenu@gmail.com"
+    },
+    {
+        "id":"2",
+      "name":"Akash S",
+      "address":"MayLine",
+      "email":"sak@gmail.com"  
+    },
+    {
+        "id":"3",
+        "name":"Martin k",
+        "address":"Florida No-1",
+        "email":"mk@gmail.com"
+      }
+    ]
+}

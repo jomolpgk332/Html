@@ -1,0 +1,56 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+  background-image: url("img1.jpg");
+    background-size:cover;
+    background-position:center;
+}
+#name{
+    padding-top: 2px;
+}
+input{
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 3px;
+    margin-bottom: 1px;
+    align-items: center;
+    color: black;
+}
+.container form div {
+    position: relative;
+}
+
+.container form div label {
+    position: absolute;
+    top: 3px;
+    pointer-events: none;
+    left: 0;
+    transition: .1s;
+}
+
+.container{
+    text-align: center;
+   margin-right: 250px;
+   margin-left: 500%;
+    background-color: white;
+    width: 900px; 
+    padding: 50px;
+    margin: 20px;
+  }
+  .container input:focus~label,
+  .container input:valid~label{
+    left: 0px;
+   
+  }
+  .button1 {
+      border-radius: 30px;
+    font-size: 30px;
+}
+.button2 {
+    border-radius: 30px;
+    font-size: 30px;
+}

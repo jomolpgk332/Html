@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="js/jquery-1.11.0.js"></script>  
+    </head>
+    <body>
+        <script>
+        $(document).ready(function(){
+            $("#btn").bind('click',add);
+        
+        });
+        function add()
+        {
+            var  c=Number($("#a").val())+Number($("#b").val())
+            $("#out").html("total->"+c);
+        }
+            </script>
+            <form>
+                A value<input type="text" id="a">
+                B value<input type="text" id="b">
+                <button type="button" id="btn">Add</button>
+                <p id="out"></p>
+            </form>
+    </body>
+
+
+</html>

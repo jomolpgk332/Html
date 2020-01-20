@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script src="js/jquery-1.11.0.js"></script>  
+    </head>
+    <body>
+        <script>
+        $(document).ready(function(){
+            $("#btn").bind('click',add)
+            $("#a").bind('keyup',ch);
+            $("#b").bind('keyup',ch1);
+        
+        });
+        function ch()
+        {
+            $("#out").html("A Typing");
+        }
+        function ch1(){
+            $("#out").html("B Typing");
+        }
+        function add(){
+            var  c=Number($("#a").val())+Number($("#b").val())
+            $("#out").html("total->"+c);
+        }
+            </script>
+            <form>
+                A value<input type="text" id="a">
+                B value<input type="text" id="b">
+                <button type="button" id="btn">Add</button>
+                <p id="out"></p>
+            </form>
+    </body>
+
+
+</html>

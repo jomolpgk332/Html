@@ -1,0 +1,16 @@
+$(document).ready(function()){
+    $("#btn").click(weather);
+    function weather(){
+        var text=$("#txt1").val();
+        $.ajax({
+            url:"https://samples.openweathermap.org/data/2.5/weather?q="+text+"&units=metric"+"&appid=b6907d289e10d714a6e88b30761fae22"
+            type:"GET",
+            datatype:"jsonp",
+            success:function(data)
+            {
+                console.log(data);
+                document.getElementById("show").innerHTML=data.main.temp+" &#8451;";
+            }
+        });
+    }
+});
